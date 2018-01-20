@@ -32,47 +32,6 @@ if (item!=null) {
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
   <script src="http://forresst.github.io/js/jquery.ui.touch-punch.min.js"></script>
   <script>
-   var musicNameDic={
-		    "11": "(걸인베) Candy Jelly Love",
-		    "12": "(걸인베) 어제처럼 굿나잇",
-		    "13": "(걸인베) 이별 Chapter1",
-		    "14": "(걸인베) 비밀여행",
-		    "15": "(1집리팩) 안녕",
-		    "16": "(1집리팩) 놀이공원",
-		    "21": "(럽8) 아츄",
-		    "22": "(럽8) 작별하나",
-		    "23": "(럽8) 예쁜 여자가 되는 법",
-		    "24": "(럽8) Hug Me",
-		    "25": "(럽8) 새콤달콤",
-		    "26": "(럽8) 라푼젤",
-		    "31": "(LVLNS) 그대에게",
-		    "32": "(LVLNS) Circle",
-		    "33": "(LVLNS) BeBe",
-		    "41": "(뉴트릴) Destiny",
-		    "42": "(뉴트릴) 퐁당",
-		    "43": "(뉴트릴) 책갈피",
-		    "44": "(뉴트릴) 1 cm",
-		    "45": "(뉴트릴) 마음(*취급주의)",
-		    "46": "(뉴트릴) 인형",
-		    "51": "(2집리팩) 지금,우리",
-		    "52": "(2집리팩) 아야(Aya)",
-		    "53": "(RUR) WoW!",
-		    "54": "(RUR) Cameo",
-		    "55": "(RUR) Emotion",
-		    "56": "(RUR) 첫눈",
-		    "57": "(RUR) 똑똑",
-		    "58": "(RUR) Night and Day",
-		    "59": "(RUR) 숨바꼭질",
-		    "50": "(Fever) Take Me Somewhere",
-		    "61": "(폴인럽) 종소리",
-		    "62": "(폴인럽) 삼각형",
-		    "63": "(폴인럽) 그냥",
-		    "64": "(폴인럽) 비밀정원",
-		    "65": "(폴인럽) FALLIN'",
-		    "66": "(폴인럽) 졸린꿈"
-   };
-  </script>
-  <script>
   $(document).ready(function(e) {
 	    (function() {
             var listTab = getSelect($(".listTab"),function(){
