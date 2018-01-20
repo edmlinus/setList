@@ -1,0 +1,20 @@
+@charset "EUC-KR";
+.formWrap{
+	width:570px;
+	height:600px;
+	background-color:#52c1f1;
+	padding:30px;
+}
+.iText{
+	padding:0 8px;
+	height:31px;
+	font-size:14px;
+	border:1px solid #dfe5ed;
+	vertical-align:middle;
+}
+.phoneNumber{
+	margin:30px 0px;
+}
+.phoneNumber input[type="text"]{
+	width:100px;
+}

@@ -1,0 +1,127 @@
+@charset "EUC-KR";
+* {
+ border : 0;
+ padding:0;
+ margin:0;
+}
+ul{
+list-style:none;
+}
+
+#sortable li{
+width:278px;
+height:54px;
+border:3px solid #A7C7AF;
+
+overflow:hidden;
+background-color:#A7C7AF;
+}
+.selectTab{
+width:300px;
+height:600px;
+margin:30px;
+background-color:#6fdb8f;
+position:absolute;
+bottom:0;
+left:0;
+}
+.selectTab .listWrap li{
+width:278px;
+height:54px;
+border:3px solid #A7C7AF;
+overflow:hidden;
+background-color:#A7C7AF;
+}
+.listTab{
+width:300px;
+height:600px;
+margin:30px;
+background-color:#db73ce;
+position:absolute;
+bottom:0;
+right:0;
+}
+.buttonWrap{
+width:300px;
+height:60px;
+position:absolute;
+bottom:0px;
+}
+.buttonWrap ul.buttons{
+list-style:none;
+}
+.buttonWrap ul.buttons li{
+display:inline-block;
+float:left;
+height:56px;
+width:146px;
+padding:2px;
+background-color:#3ebd22;
+}
+.listWrap{
+width:100%;
+height:500px;
+background-color:#A7C7AF;
+overflow:scroll;
+position:absolute;
+top:65px;
+}
+.listWrap li.selected{
+background-color:#FF4083;
+border:3px solid #FF4083;
+}
+#sortable li.selected{
+background-color:#FF4083;
+border:3px solid #FF4083;
+}
+.infoWrap{
+width:100%;
+background-color:#555555;
+position:absolute;
+bottom:60px;
+display:none;
+color:#fff;
+height:20px;
+}
+.titleWrap{
+width:100%;
+height:65px;
+background-color:#3ebd22;
+position:absolute;
+top:0;
+display:block;
+color:#fff;
+}
+.SongsWrap{
+width:294px;
+height:59px;
+position:absolute;
+top:0;
+display:block;
+border:3px solid #3ebd22;
+background-image:url(images/songList.png);
+}
+.submitWrap{
+width:630px;
+height:60px;
+margin:30px;
+background-color:#6fdb8f;
+clear:both;
+}
+.submitBtn{
+width:100px;
+height:40px;
+margin:30px;
+background-color:#6fdb8f;
+}
+img{
+margin:0;
+padding:0;
+}
+.contentsArea{
+width:720px;
+height:860px;
+clear:both;
+background-color:#000;
+position:relative;
+}
