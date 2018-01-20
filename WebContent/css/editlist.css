@@ -99,17 +99,11 @@ position:absolute;
 top:0;
 display:block;
 border:3px solid #3ebd22;
-background-image:url(images/songList.png);
+background-image:url(../images/songList2.png);
 }
-.submitWrap{
-width:630px;
-height:60px;
-margin:30px;
-background-color:#6fdb8f;
-clear:both;
-}
-.submitBtn{
-width:100px;
+
+#submitBtn{
+width:200px;
 height:40px;
 margin:30px;
 background-color:#6fdb8f;
@@ -122,6 +116,6 @@ padding:0;
 width:720px;
 height:860px;
 clear:both;
-background-color:#000;
+background-image:url(../images/wrap3.png);
 position:relative;
 }

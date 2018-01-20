@@ -5,18 +5,29 @@
 String hp1 = (String)request.getParameter("hp1");
 String hp2 = (String)request.getParameter("hp2");
 String hp3 = (String)request.getParameter("hp3");
-hp1 = hp1!=null ? hp1.trim() : null;
-hp2 = hp2!=null ? hp2.trim() : null;
-hp3 = hp3!=null ? hp3.trim() : null;
+hp1 = hp1!=null ? hp1.trim() : "";
+hp2 = hp2!=null ? hp2.trim() : "";
+hp3 = hp3!=null ? hp3.trim() : "";
+if (hp1.length()==0 || hp2.length()==0 || hp3.length()==0) {
+	response.sendRedirect("index.jsp");
+}
 MyItem item = MyItemManager.getMyItem(hp1,hp2,hp3);
-List<String> songList = new ArrayList<String>();
-String[] songs = null;
+
+String[] initSong = new String[] {
+		"1","2","3","4","5","6","7","8","9","10",
+		"12","13","14","15","16","17","18","19","20",
+		"22","23","24","25","26","27","29","30",
+		"31","32","33","34","35","36","37","38","39","40",
+		"42","43","44","45","46","47"
+};
+String[] songs = new String[] {"42","2"};
 if (item!=null) {
 	songs =item.songList.split(",");
-	for (String song : songs) {
-		songList.add(song);
-	}
-}
+}	
+List<String> songList = new ArrayList<String>();
+for (String song : songs) {
+	songList.add(song);
+} 
 %>
 <html>
 <head>
@@ -54,24 +65,22 @@ if (item!=null) {
     		  if(isValid) {
     			  fillForm(itemList);
     		  } else {
-    			  alert(" 개수가 맞지 않아요.");
+    			  alert("셋리스트에 20개의 곡이 들어가 있지 않습니다.");
     		  } 
     		  return isValid;
     	  	});
             
             function fillForm(itemList) {
-            	alert(itemList.join());
             	$("form").find("#inputItemList").attr("value",itemList.join());
             }
            
+            var fullCount = 20;
+            
             function checkListCount(list){
-        	  var counts= list.length;
-        	  var fullCount = 5;
+        	  var counts= list.length;       	  
         	  if(counts>fullCount){
-	      		  alert(counts);
 	      		  return false;
         	  } else if(counts<fullCount){
-	      		  alert(counts);
 	      		  return false;
         	  } else {
         		  return true;
@@ -144,8 +153,7 @@ if (item!=null) {
             		  alert("선택된 항목이 없습니다.");
             	  }
               }
-              
-              
+                         
               function addItem(array){
             	  var itemNamesList= array;
             	  for(var i=0;i<itemNamesList.length;i++){
@@ -164,17 +172,17 @@ if (item!=null) {
               
               function updateInfoItem(length){
             	  var counts = length;
-            	  if(counts<25){
+            	  if(counts<fullCount){
             		  $titleItem.children().remove();
-            		  var $newLine = "<p> total "+counts+" items in the list<br>must select more items to submit"
+            		  var $newLine = "<p> 셋리스트에 총 "+counts+"곡이 있습니다.<br>셋리스트에 20곡이 있어야 제출할 수 있습니다."
             		  $titleItem.prepend($newLine);
-            	  }else if(counts>25){
+            	  }else if(counts>fullCount){
             		  $titleItem.children().remove();
-            		  var $newLine = "<p> total "+counts+"items selected <br> delete some from the list</p>"
+            		  var $newLine = "<p> 셋리스트에 총 "+counts+"곡이 있습니다.<br>셋리스트에 20곡이 있어야 제출할 수 있습니다.</p>"
             		  $titleItem.prepend($newLine);
-            	  }else if(counts==25){
+            	  }else if(counts==fullCount){
             		  $titleItem.children().remove();
-            		  var $newLine = "<p> 25 items selected <br> you may submit now</p>"
+            		  var $newLine = "<p> 셋리스트에 총 20 곡이 있습니다.</p>"
             	  }
               }
               
@@ -250,10 +258,10 @@ if (item!=null) {
 <div class="listWrap">
 <ul>
 <% 
-	for (int i=0;i<=47;i++) {
-		if(!songList.contains(i+"")) {
+	for (String s : initSong) {
+		if(!songList.contains(s)) {
 %>
-    <li value="<%=i%>"><img src="images/<%=i%>.png"></li>
+    <li value="<%=s%>"><img src="images/<%=s%>.png"></li>
 <%			
 		}
 	}
@@ -296,12 +304,15 @@ if (item!=null) {
 </div>
 </div>
 </div>
-<button id="submitBtn" type="button" class="submitBtn"> clickMe </button>
-<form class="submitWrap" target="_top" method="get" action="save.jsp">
+
+<form target="_top" method="post" action="save.jsp">
+ <button id="submitBtn" type="button" class="submitBtn">응답 제출 </button>
  <input name="hp1" type="hidden" value="<%=hp1%>">
  <input name="hp2" type="hidden" value="<%=hp2%>">
  <input name="hp3" type="hidden" value="<%=hp3%>">
  <input id="inputItemList" name="songList" type="hidden" value="">
 </form>
+
+
 </body>
 </html>
